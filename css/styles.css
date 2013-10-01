@@ -1,0 +1,20 @@
+.btn-group > .btn:first-child {
+	border-bottom-left-radius: 0;
+}
+
+.btn-group > .btn:last-child {
+	border-bottom-right-radius: 0;
+}
+
+.btn-group > .btn {
+	border-bottom: 0;
+}
+
+.label {
+	position: relative;
+	bottom: 4px;
+}
+
+pre {
+	border-top-left-radius: 0;
+}
