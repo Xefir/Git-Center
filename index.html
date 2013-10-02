@@ -6,18 +6,42 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/bootstrap-responsive.min.css">
 		<link rel="stylesheet" href="css/styles.css">
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<title>Git Center</title>
 	</head>
-	<body>
+	<body data-spy="scroll">
 
 	<div class="container">
-			<h3>Magento <span class="label label-success">OK</span></h3>
-			<div class="btn-group">
-				<button class="btn"><i class="icon-refresh"></i> Status</button>
-				<button class="btn"><i class="icon-arrow-up"></i> Push</button>
-				<button class="btn"><i class="icon-arrow-down"></i> Pull</button>
+		<div class="row">
+			<div class="span3">
+				<ul class="nav nav-list well">
+					<li class="nav-header">France</li>
+					<li><a href="#magento-prod">Magento Prod</a></li>
+					<li><a href="#magento-preprod">Magento Preprod</a></li>
+				</ul>
 			</div>
-			<pre><b>coiucou</b></pre>
+			<div class="span9">
+				<section id="magento-prod">
+					<h3>Magento Prod <span class="label label-success">OK</span></h3>
+						<div class="btn-group">
+							<button class="btn"><i class="icon-refresh"></i> Status</button>
+							<button class="btn"><i class="icon-arrow-up"></i> Push</button>
+							<button class="btn"><i class="icon-arrow-down"></i> Pull</button>
+						</div>
+						<pre><b>coiucou</b></pre>
+				</section>
+				<section id="magento-preprod">
+					<h3>Magento Preprod <span class="label label-important">En attente</span></h3>
+						<div class="btn-group">
+							<button class="btn"><i class="icon-refresh"></i> Status</button>
+							<button class="btn"><i class="icon-arrow-up"></i> Push</button>
+							<button class="btn"><i class="icon-arrow-down"></i> Pull</button>
+						</div>
+						<pre><b>coiucou</b></pre>
+				</section>
+			</div>
+		</div>
 	</div>
 
 	</body>
