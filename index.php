@@ -35,10 +35,16 @@ global $servers;
 							<section id="<?php echo $id; ?>">
 								<h3><?php echo $param['title']; ?> <span class="label"></span></h3>
 								<div class="btn-group">
-									<button class="btn" onclick="callRequest('status', '<?php echo $id; ?>');"><i class="icon-refresh"></i> Status</button>
-									<button class="btn" onclick="callRequest('pull', '<?php echo $id; ?>');"><i class="icon-arrow-down"></i> Pull</button>
+									<button class="btn" onclick="callRequest('status', '<?php echo $id; ?>');">
+										<i class="icon-refresh"></i> Status
+									</button>
+									<button class="btn" onclick="callRequest('pull', '<?php echo $id; ?>');">
+										<i class="icon-arrow-down"></i> Pull
+									</button>
 									<div class="input-prepend">
-										<button class="btn" type="button"><i class="icon-arrow-up"></i> Push</button>
+										<button class="btn" type="button" onclick="callRequest('push', '<?php echo $id; ?>', document.querySelector('#<?php echo $id; ?> input[name=message]').value);">
+											<i class="icon-arrow-up"></i> Push
+										</button>
 										<input type="text" name="message" placeholder="Commit message">
 									</div>
 								</div>

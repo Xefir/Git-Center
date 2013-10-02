@@ -22,9 +22,9 @@ if (!empty($_POST['action'])) {
 			echo ansi2html($session->exec('cd ' . $config['path'] . ' && ' . $gitstatus));
 		} else if ($_POST['action'] == 'push') {
 			$message = empty($_POST['message']) ? 'FTP' : $_POST['message'];
-			//echo $session->exec('cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus);
+			echo ansi2html($session->exec('cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus));
 		} else if ($_POST['action'] == 'pull') {
-			//echo $session->exec('cd ' . $config['path'] . ' && git pull && ' . $gitstatus);
+			echo ansi2html($session->exec('cd ' . $config['path'] . ' && git pull && ' . $gitstatus));
 		}
 	}
 }

@@ -36,8 +36,3 @@ function callRequest(action, section, message) {
 		}
 	};
 }
-
-function push(section) {
-	//callRequest('push', section, document.getElementById('message').value);
-	return false;
-}
