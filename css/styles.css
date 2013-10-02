@@ -27,3 +27,9 @@ pre {
 	padding-top: 8px;
 	margin-top: 10px;
 }
+
+.loading {
+	background-image: url(../img/ajax-loader.gif);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
