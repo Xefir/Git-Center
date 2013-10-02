@@ -11,7 +11,7 @@ function callRequest(section) {
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'ajax.php');
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send('section=' + section);
+	xhr.send('action=status&section=' + section);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 0)) {
 			var data = JSON.parse(xhr.responseText);
