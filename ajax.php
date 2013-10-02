@@ -1,6 +1,7 @@
 <?php
 
 require_once 'config/config.php';
+require_once 'lib/Net/SSH2.php';
 global $servers;
 
 if (!empty($_POST['section'])) {
@@ -13,18 +14,15 @@ if (!empty($_POST['section'])) {
 }
 
 if (!empty($_POST['action'])) {
-	$session = ssh2_connect($config['host'], $config['port']);
-	ssh2_auth_password($session, $config['user'], $config['pass']);
-	if ($_POST['action'] == 'status') {
-		$output = ssh2_exec($session, 'cd ' . $config['path'] . ' && git fetch && git status');
-	} else if ($_POST['action'] == 'push') {
-		$message = empty($_POST['message']) ? 'FTP' : $_POST['message'];
-		$output = ssh2_exec($session, 'cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push');
-	} else if ($_POST['action'] == 'pull') {
-		$output = ssh2_exec($session, 'cd ' . $config['path'] . ' && git pull');
+	$session = new Net_SSH2($config['host'], $config['port']);
+	if ($ssh->login($config['user'], $config['pass'])) {
+		if ($_POST['action'] == 'status') {
+			echo $ssh->exec('cd ' . $config['path'] . ' && git fetch && git status');
+		} else if ($_POST['action'] == 'push') {
+			$message = empty($_POST['message']) ? 'FTP' : $_POST['message'];
+			//echo $ssh->exec('cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push');
+		} else if ($_POST['action'] == 'pull') {
+			//echo $ssh->exec('cd ' . $config['path'] . ' && git pull');
+		}
 	}
-
-	$pre = stream_get_contents($output);
 }
-
-echo json_encode(array('pre' => $pre));

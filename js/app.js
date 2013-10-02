@@ -14,8 +14,7 @@ function callRequest(section) {
 	xhr.send('action=status&section=' + section);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 0)) {
-			var data = JSON.parse(xhr.responseText);
-			pre.innerHTML = data['pre'];
+			pre.innerHTML = xhr.responseText;
 		}
 	};
 }
