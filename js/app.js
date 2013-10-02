@@ -15,7 +15,6 @@ function callRequest(action, section, message) {
 	label.classList.add('label-warning');
 	label.innerHTML = 'Loading';
 
-	message = typeof(message) !== 'undefined' ? message : 'FTP';
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'ajax.php');
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
