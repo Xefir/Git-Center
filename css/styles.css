@@ -1,13 +1,17 @@
-.btn-group > .btn:first-child {
+.btn-group .btn:first-child {
 	border-bottom-left-radius: 0;
 }
 
-.btn-group > .btn:last-child {
+.btn-group .btn:last-child, .input-prepend input {
 	border-bottom-right-radius: 0;
 }
 
-.btn-group > .btn {
+.btn-group .btn {
 	border-bottom: 0;
+}
+
+.btn-group .input-prepend .btn {
+	border-left: 0;
 }
 
 .label {
@@ -15,7 +19,7 @@
 	bottom: 4px;
 }
 
-pre {
+pre, .btn-group .input-prepend .btn {
 	border-top-left-radius: 0;
 }
 
@@ -32,4 +36,10 @@ pre {
 	background-image: url(../img/ajax-loader.gif);
 	background-repeat: no-repeat;
 	padding-left: 20px;
+}
+
+.input-prepend {
+	margin-bottom: 0;
+	position: relative;
+	top: 1px;
 }

@@ -1,20 +1,43 @@
 window.addEventListener('load', function() {
 	var sections = document.querySelectorAll('section');
 	for (var i = 0; i < sections.length; i++) {
-		callRequest(sections[i].id);
+		callRequest('status', sections[i].id);
 	}
 });
 
-function callRequest(section) {
+function callRequest(action, section, message) {
 	var pre = document.querySelector('#' + section + ' pre');
 	pre.innerHTML = '<span class="loading">Loading ...</span>';
+
+	var label = document.querySelector('#' + section + ' .label');
+	label.classList.remove('label-success');
+	label.classList.remove('label-important');
+	label.classList.add('label-warning');
+	label.innerHTML = 'Loading';
+
+	message = typeof(message) !== 'undefined' ? message : 'FTP';
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'ajax.php');
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send('action=status&section=' + section);
+	xhr.send('action=' + action + '&section=' + section + '&message=' + message);
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 0)) {
 			pre.innerHTML = xhr.responseText;
+
+			var splitLabel = xhr.responseText.split("\n").reverse();
+			label.classList.remove('label-warning');
+			if (splitLabel[1] !== 'nothing to commit (working directory clean)') {
+				label.classList.add('label-important');
+				label.innerHTML = 'Update needed';
+			} else {
+				label.classList.add('label-success');
+				label.innerHTML = 'OK';
+			}
 		}
 	};
+}
+
+function push(section) {
+	//callRequest('push', section, document.getElementById('message').value);
+	return false;
 }
