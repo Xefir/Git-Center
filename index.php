@@ -29,7 +29,7 @@
 							<button class="btn"><i class="icon-arrow-up"></i> Push</button>
 							<button class="btn"><i class="icon-arrow-down"></i> Pull</button>
 						</div>
-						<pre><b>coiucou</b></pre>
+						<pre><b>coucou</b></pre>
 				</section>
 				<section id="magento-preprod">
 					<h3>Magento Preprod <span class="label label-important">En attente</span></h3>
@@ -38,7 +38,7 @@
 							<button class="btn"><i class="icon-arrow-up"></i> Push</button>
 							<button class="btn"><i class="icon-arrow-down"></i> Pull</button>
 						</div>
-						<pre><b>coiucou</b></pre>
+						<pre><b>coucou</b></pre>
 				</section>
 			</div>
 		</div>
