@@ -3,10 +3,8 @@
 session_start();
 
 if (defined('ONGITLAB') && ONGITLAB) {
-	if (!isset($_SESSION['remember_user_token'])) {
-		if (dirname(__FILE__) != '/') {
-			header('Location: /');
-		}
+	if (!isset($_COOKIE['remember_user_token'])) {
+		header('Location: /');
 		exit;
 	}
 }

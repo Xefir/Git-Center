@@ -19,12 +19,12 @@ if (!empty($_POST['action'])) {
 	$session = new Net_SSH2($config['host'], $config['port']);
 	if ($session->login($config['user'], $config['pass'])) {
 		if ($_POST['action'] == 'status') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . ' && ' . $gitstatus));
+			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $gitstatus . "'"));
 		} else if ($_POST['action'] == 'push') {
 			$message = empty($_POST['message']) ? 'FTP' : $_POST['message'];
-			echo ansi2html($session->exec('cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus));
+			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . addslashes($message) . '" && git push && ' . $gitstatus . "'"));
 		} else if ($_POST['action'] == 'pull') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . ' && git pull && ' . $gitstatus));
+			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git pull && ' . $gitstatus . "'"));
 		}
 	}
 }
