@@ -1,5 +1,16 @@
 <?php
 
+session_start();
+
+if (defined('ONGITLAB') && ONGITLAB) {
+	if (!isset($_SESSION['remember_user_token'])) {
+		if (dirname(__FILE__) != '/') {
+			header('Location: /');
+		}
+		exit;
+	}
+}
+
 function ansi2html($string) {
 	$dictionary = array(
 		'[30m' => '<span style="color:blue">',

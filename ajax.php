@@ -1,7 +1,7 @@
 <?php
 
-require_once 'config/config.php';
-require_once 'config/color.php';
+require_once 'config.php';
+require_once 'utils.php';
 require_once 'Net/SSH2.php';
 global $servers;
 $gitstatus = 'git fetch && git status';
