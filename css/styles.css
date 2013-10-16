@@ -30,6 +30,7 @@ pre, .btn-group .input-prepend .btn {
 .nav {
 	padding-top: 8px;
 	margin-top: 10px;
+	margin-left: -50px;
 }
 
 .loading {

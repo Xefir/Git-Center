@@ -19,7 +19,7 @@ global $servers;
 		<div class="container">
 			<div class="row">
 				<div class="span3">
-					<ul class="nav nav-list well">
+					<ul class="nav nav-list well affix span3">
 						<?php foreach ($servers as $pays => $ssh): ?>
 							<li class="nav-header"><?php echo $pays; ?></li>
 							<?php foreach ($ssh as $id => $param): ?>
