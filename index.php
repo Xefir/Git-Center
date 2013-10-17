@@ -16,8 +16,8 @@ global $servers;
 	<body data-spy="scroll" data-target=".nav-list">
 		<div class="container">
 			<div class="row">
-				<div class="span3">
-					<ul class="nav nav-list well affix span3">
+				<div class="span4">
+					<ul class="nav nav-list well span3">
 						<?php foreach ($servers as $pays => $ssh): ?>
 							<li class="nav-header"><?php echo $pays; ?></li>
 							<?php foreach ($ssh as $id => $param): ?>
@@ -26,7 +26,7 @@ global $servers;
 						<?php endforeach; ?>
 					</ul>
 				</div>
-				<div class="span9">
+				<div class="span8">
 					<?php foreach ($servers as $pays => $ssh): ?>
 						<h1><?php echo $pays; ?></h1>
 						<?php foreach ($ssh as $id => $param): ?>

@@ -14,15 +14,14 @@
 
 .toolbar-top {
 }
-.toolbar-top .btn {
+.toolbar-top .btn-group .btn {
     border-bottom: 0;
-    border-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
 }
-.toolbar-top .btn:first-child {
-    border-top-left-radius: 4px;
-}
-.toolbar-top .btn:last-child {
-    border-top-right-radius: 4px;
+
+h4 {
+    margin-top: 14px;
 }
 
 pre {
@@ -30,6 +29,8 @@ pre {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
+    height: 325px;
+    overflow: auto;
 }
 
 .toolbar-bottom {
@@ -37,11 +38,13 @@ pre {
 }
 .toolbar-bottom .input-append {
     display: block;
-    padding-right: 50px;
+    padding-right: 80px;
 }
 .toolbar-bottom .input-block-level {
     box-sizing: border-box;
+    border-top-left-radius: 0;
 }
 .toolbar-bottom .btn {
-    width:50px;
+    width:80px;
+    border-top-right-radius: 0;
 }
