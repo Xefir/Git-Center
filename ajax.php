@@ -1,5 +1,6 @@
 <?php
 
+ini_set('display_errors', true);
 require_once 'config.php';
 require_once 'utils.php';
 require_once 'Net/SSH2.php';
