@@ -1,36 +1,9 @@
-.btn-group .btn:first-child {
-	border-bottom-left-radius: 0;
-}
-
-.btn-group .btn:last-child, .input-prepend input {
-	border-bottom-right-radius: 0;
-}
-
-.btn-group .btn {
-	border-bottom: 0;
-}
-
-.btn-group .input-prepend .btn {
-	border-left: 0;
-}
-
 .label {
-	position: relative;
-	bottom: 4px;
 }
 
-pre, .btn-group .input-prepend .btn {
-	border-top-left-radius: 0;
-}
 
 .container {
 	margin: 20px auto;
-}
-
-.nav {
-	padding-top: 8px;
-	margin-top: 10px;
-	margin-left: -50px;
 }
 
 .loading {
@@ -39,8 +12,36 @@ pre, .btn-group .input-prepend .btn {
 	padding-left: 20px;
 }
 
-.input-prepend {
-	margin-bottom: 0;
-	position: relative;
-	top: 1px;
+.toolbar-top {
+}
+.toolbar-top .btn {
+    border-bottom: 0;
+    border-radius: 0;
+}
+.toolbar-top .btn:first-child {
+    border-top-left-radius: 4px;
+}
+.toolbar-top .btn:last-child {
+    border-top-right-radius: 4px;
+}
+
+pre {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin: 0;
+}
+
+.toolbar-bottom {
+    margin-top: -1px;
+}
+.toolbar-bottom .input-append {
+    display: block;
+    padding-right: 50px;
+}
+.toolbar-bottom .input-block-level {
+    box-sizing: border-box;
+}
+.toolbar-bottom .btn {
+    width:50px;
 }

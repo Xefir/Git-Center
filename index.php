@@ -33,7 +33,7 @@ global $servers;
 							<section id="<?php echo $id; ?>">
 								<h4><?php echo $param['title']; ?></h4>
                                 <div class="pull-right"><span class="label"></span></div>
-								<div class="btn-group">
+								<div class="btn-group toolbar-top">
 									<button class="btn" onclick="callRequest('status', '<?php echo $id; ?>');">
 										<i class="icon-refresh"></i> Status
 									</button>
@@ -42,7 +42,7 @@ global $servers;
 									</button>
 								</div>
 								<pre></pre>
-                                <div class="control-group">
+                                <div class="control-group toolbar-bottom">
                                     <div class="controls">
                                         <div class="input-append">
                                             <input class="input-block-level" type="text" name="message" placeholder="Commit message">
