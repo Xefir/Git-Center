@@ -13,11 +13,11 @@ global $servers;
 		<link rel="stylesheet" href="css/styles.css">
 		<title>Git Control Center</title>
 	</head>
-	<body data-spy="scroll" data-target=".nav-list">
+	<body data-spy="scroll">
 		<div class="container">
 			<div class="row">
-				<div class="span4">
-					<ul class="nav nav-list well span3">
+				<div class="span2">
+					<ul class="nav nav-list well affix">
 						<?php foreach ($servers as $pays => $ssh): ?>
 							<li class="nav-header"><?php echo $pays; ?></li>
 							<?php foreach ($ssh as $id => $param): ?>
@@ -26,13 +26,13 @@ global $servers;
 						<?php endforeach; ?>
 					</ul>
 				</div>
-				<div class="span8">
+				<div class="span10">
 					<?php foreach ($servers as $pays => $ssh): ?>
 						<h1><?php echo $pays; ?></h1>
 						<?php foreach ($ssh as $id => $param): ?>
 							<section id="<?php echo $id; ?>">
-								<h4><?php echo $param['title']; ?></h4>
-                                <div class="pull-right"><span class="label"></span></div>
+								<h3><?php echo $param['title']; ?></h3>
+								<div class="pull-right"><span class="label"></span></div>
 								<div class="btn-group toolbar-top">
 									<button class="btn" onclick="callRequest('status', '<?php echo $id; ?>');">
 										<i class="icon-refresh"></i> Status
@@ -42,25 +42,24 @@ global $servers;
 									</button>
 								</div>
 								<pre></pre>
-                                <div class="control-group toolbar-bottom">
-                                    <div class="controls">
-                                        <div class="input-append">
-                                            <input class="input-block-level" type="text" name="message" placeholder="Commit message">
-                                            <button class="btn" type="button" onclick="callRequest('push', '<?php echo $id; ?>', document.querySelector('#<?php echo $id; ?> input[name=message]').value);">
-                                                <i class="icon-arrow-up"></i> Push
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+								<div class="toolbar-bottom input-append">
+									<input class="input-block-level" type="text" name="message" placeholder="Commit message">
+									<button class="btn" onclick="callRequest('push', '<?php echo $id; ?>', document.querySelector('#<?php echo $id; ?> input[name=message]').value);">
+										<i class="icon-arrow-up"></i> Push
+									</button>
+								</div>
 							</section>
 						<?php endforeach; ?>
-                        <hr />
+						<hr>
 					<?php endforeach; ?>
 				</div>
 			</div>
 		</div>
-        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/app.js"></script>
+
+		<footer>
+			<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+			<script type="text/javascript" src="js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="js/app.js"></script>
+		</footer>
 	</body>
 </html>

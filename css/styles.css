@@ -1,7 +1,3 @@
-.label {
-}
-
-
 .container {
 	margin: 20px auto;
 }
@@ -12,16 +8,10 @@
 	padding-left: 20px;
 }
 
-.toolbar-top {
-}
 .toolbar-top.btn-group .btn {
     border-bottom: 0;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-}
-
-h4 {
-    margin-top: 34px;
 }
 
 pre {
@@ -29,28 +19,29 @@ pre {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
-    max-height: 125px;
-    overflow: auto;
-}
-
-hr {
-    border-color: black;
-    margin-top: 40px;
 }
 
 .toolbar-bottom {
     margin-top: -1px;
 }
-.toolbar-bottom .input-append {
-    display: block;
-    padding-right: 79px;
+
+.toolbar-bottom {
+	display: block;
+	padding-right: 79px;
 }
+
 .toolbar-bottom .input-block-level {
-    box-sizing: border-box;
     border-top-left-radius: 0;
-    width: 100% !important;
+	width: 100% !important;
 }
+
 .toolbar-bottom .btn {
-    width:80px;
+	width: 80px;
     border-top-right-radius: 0 !important;
+}
+
+@media (max-width: 767px) {
+	.affix {
+		position: relative;
+	}
 }
