@@ -29,7 +29,7 @@ pre {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
-    height: 125px;
+    max-height: 125px;
     overflow: auto;
 }
 
