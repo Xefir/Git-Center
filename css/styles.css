@@ -14,10 +14,10 @@
 
 .toolbar-top {
 }
-.toolbar-top .btn-group .btn {
+.toolbar-top.btn-group .btn {
     border-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }
 
 h4 {
@@ -29,7 +29,7 @@ pre {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     margin: 0;
-    height: 325px;
+    height: 225px;
     overflow: auto;
 }
 
@@ -43,8 +43,9 @@ pre {
 .toolbar-bottom .input-block-level {
     box-sizing: border-box;
     border-top-left-radius: 0;
+    width: 100% !important;
 }
 .toolbar-bottom .btn {
     width:80px;
-    border-top-right-radius: 0;
+    border-top-right-radius: 0 !important;
 }
