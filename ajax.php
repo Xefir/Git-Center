@@ -23,7 +23,7 @@ if (!empty($_POST['action'])) {
 			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $gitstatus . "'"));
 		} else if ($_POST['action'] == 'push') {
 			$message = empty($_POST['message']) ? 'FTP' : $_POST['message'];
-			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . str_replace('"', "'", $message) . '" && git push && ' . $gitstatus . "'"));
+			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . str_replace(array('"', "'"), ' ', $message) . '" && git push && ' . $gitstatus . "'"));
 		} else if ($_POST['action'] == 'pull') {
 			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git pull && ' . $gitstatus . "'"));
 		}
