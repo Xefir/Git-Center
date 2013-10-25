@@ -17,6 +17,11 @@ function callRequest(action, section, message) {
 	label.classList.add('label-warning');
 	label.innerHTML = 'Loading';
 
+	var buttons = document.querySelectorAll('#' + section + ' button');
+	for (var button in buttons) {
+		buttons[button].disabled = true;
+	}
+
 	var xhr = new XMLHttpRequest();
 	xhr.open('POST', 'ajax.php');
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -34,6 +39,11 @@ function callRequest(action, section, message) {
 				label.classList.add('label-success');
 				label.innerHTML = 'OK';
 			}
+
+			for (var button in buttons) {
+				buttons[button].disabled = false;
+			}
+			document.querySelector('#' + section + ' input').value = '';
 		}
 	};
 }
