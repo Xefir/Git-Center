@@ -26,7 +26,7 @@ global $servers;
 						<?php endforeach; ?>
 					</ul>
 				</div>
-				<div class="span10">
+				<div class="span9">
 					<?php foreach ($servers as $pays => $ssh): ?>
 						<h1><?php echo $pays; ?></h1>
 						<?php foreach ($ssh as $id => $param): ?>

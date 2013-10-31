@@ -40,6 +40,10 @@ pre {
     border-top-right-radius: 0 !important;
 }
 
+.span9 {
+	float: right;
+}
+
 @media (max-width: 767px) {
 	.affix {
 		position: relative;
