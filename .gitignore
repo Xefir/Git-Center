@@ -1,3 +1,5 @@
 /nbproject/private/
 /config.php
 .idea
+.htaccess
+.htpasswd
