@@ -32,7 +32,7 @@ function callRequest(action, section, message) {
 
 			var splitLabel = xhr.responseText.split("\n").reverse();
 			label.classList.remove('label-warning');
-			if (!splitLabel[1].match(/nothing to commit/) || xhr.responseText.match(/by [0-9]* commit/)) {
+			if ((typeof splitLabel[1] !== 'undefined' && !splitLabel[1].match(/nothing to commit/)) || xhr.responseText.match(/by [0-9]* commit/)) {
 				label.classList.add('label-important');
 				label.innerHTML = 'Update needed';
 			} else {
