@@ -42,7 +42,7 @@ global $servers;
 									</button>
 								</div>
 								<pre></pre>
-								<div class="toolbar-bottom input-append">
+                                                                <div class="toolbar-bottom input-append" <?php if (isset($param['dev'])&& $param['dev'] == 'false'){echo 'style="display:none;"';}?>>
 									<input class="input-block-level" type="text" name="message" placeholder="Commit message">
 									<button class="btn" onclick="callRequest('push', '<?php echo $id; ?>', document.querySelector('#<?php echo $id; ?> input[name=message]').value);">
 										<i class="icon-arrow-up"></i> Push
