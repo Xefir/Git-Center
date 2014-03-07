@@ -33,8 +33,8 @@ License
 Many thanks to / Library used
 ----------
 
-[Bootstrap]
-[phpseclib]
+* [Bootstrap]
+* [phpseclib]
 
 [MIT-Licensed]:http://en.wikipedia.org/wiki/MIT_License
 [Bootstrap]:http://getbootstrap.com/
