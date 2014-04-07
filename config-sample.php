@@ -22,7 +22,8 @@ $servers = array(
 			'port' => 22,
 			'user' => 'root',
 			'pass' => 'root',
-			'path' => '/home/user/root'
+			'path' => '/home/user/root',
+			'after_push' => 'php -f TAMERE.php'
 		),
 		'test1' => array(
 			'title' => 'Test de la mort',
@@ -30,7 +31,8 @@ $servers = array(
 			'port' => 22,
 			'user' => 'user',
 			'pass' => 'blbl',
-			'path' => '/home/user/test'
+			'path' => '/home/user/test',
+			'after_pull' => 'php -f TONPERE.php'
 		),
 		'prod2' => array(
 			'title' => 'Production de la mort',

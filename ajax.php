@@ -43,10 +43,16 @@ if (!empty($_POST['action'])) {
 			exit;
 		} else if ($_POST['action'] == 'push') {
 			$message = empty($_POST['message']) ? 'FTP' : str_replace(array('"', "'"), ' ', stripslashes($_POST['message']));
-			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && git push && ' . $gitstatus . "'"));
+			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git push && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus . "'"));
+			if (!empty($config['after_push'])) {
+				echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_push']));
+			}
 			exit;
 		} else if ($_POST['action'] == 'pull') {
 			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git pull && ' . $gitstatus . "'"));
+			if (!empty($config['after_pull'])) {
+				echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_pull']));
+			}
 			exit;
 		} else {
 			echo 'Unknown command ' . $_POST['action'];
