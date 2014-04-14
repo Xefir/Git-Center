@@ -41,11 +41,18 @@ if (!empty($_POST['action'])) {
 		if ($_POST['action'] == 'status') {
 			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $gitstatus . "'"));
 			exit;
-		} else if ($_POST['action'] == 'push') {
-			$message = empty($_POST['message']) ? 'FTP' : str_replace(array('"', "'"), ' ', stripslashes($_POST['message']));
-			echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && git push && ' . $gitstatus . "'"));
-			if (!empty($config['after_push'])) {
-				echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_push'] . "'"));
+		} else if (strpos($_POST['action'], 'push') !== false) {
+			if (strpos($_POST['action'], 'force') !== false) {
+				echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git push && ' . $gitstatus . "'"));
+				if (!empty($config['after_push'])) {
+					echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_push'] . "'"));
+				}
+			} else {
+				$message = empty($_POST['message']) ? 'FTP' : str_replace(array('"', "'"), ' ', stripslashes($_POST['message']));
+				echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus . "'"));
+				if (!empty($config['after_push'])) {
+					echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_push'] . "'"));
+				}
 			}
 			exit;
 		} else if ($_POST['action'] == 'pull') {

@@ -1,6 +1,6 @@
 "use strict";
 
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 	var sections = document.querySelectorAll('section');
 	for (var i = 0; i < sections.length; i++) {
 		callRequest('status', sections[i].id);
@@ -26,7 +26,7 @@ function callRequest(action, section, message) {
 	xhr.open('POST', 'ajax.php');
 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhr.send('action=' + action + '&section=' + section + '&message=' + message);
-	xhr.onreadystatechange = function() {
+	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 0)) {
 			pre.innerHTML = xhr.responseText;
 

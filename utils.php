@@ -9,7 +9,8 @@ if (defined('ONGITLAB') && ONGITLAB) {
 	}
 }
 
-function ansi2html($string) {
+function ansi2html($string)
+{
 	$dictionary = array(
 		'[30m' => '<span style="color:black">',
 		'[31m' => '<span style="color:red">',
