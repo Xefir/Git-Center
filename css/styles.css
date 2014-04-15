@@ -25,7 +25,7 @@ pre {
 	margin-top: -1px;
 	display: block;
 	padding-right: 79px;
-	margin-right: 25px;
+	margin-right: 33px;
 }
 
 .toolbar-bottom .input-block-level {
@@ -38,14 +38,16 @@ pre {
 	border-top-right-radius: 0 !important;
 }
 
-.toolbar-bottom .btn:last-child i:last-child {
+.toolbar-bottom .btn:last-child .icon-arrow-up {
+	margin-right: -8px;
 	position: relative;
-	right: 9px;
-	margin-right: -9px;
+	right: 5px;
 }
 
 .toolbar-bottom .btn:last-child {
-	width: 20px;
+	width: auto;
+	padding-right: 8px;
+
 }
 
 .span9 {
