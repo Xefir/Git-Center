@@ -5,7 +5,7 @@ require_once 'config.php';
 require_once 'utils.php';
 require_once 'Net/SSH2.php';
 require_once 'Crypt/RSA.php';
-global $servers;
+global $servers, $config;
 $gitstatus = 'git fetch && git status';
 
 if (!empty($_POST['section'])) {
@@ -33,7 +33,7 @@ if (!empty($_POST['action'])) {
 			$session->login($config['user'], $key);
 		}
 	}
-	if (!$session->isConnected()) {
+	if (!$session->isConnected() && isset($config['pass'])) {
 		$session->login($config['user'], $config['pass']);
 	}
 
