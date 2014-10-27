@@ -17,7 +17,9 @@ function callRequest(action, section, message) {
 
 	var buttons = document.querySelectorAll('#' + section + ' button');
 	for (var button in buttons) {
-		buttons[button].disabled = true;
+		if (buttons.hasOwnProperty(button)) {
+			buttons[button].disabled = true;
+		}
 	}
 
 	var xhr = new XMLHttpRequest();
@@ -39,7 +41,9 @@ function callRequest(action, section, message) {
 			}
 
 			for (var button in buttons) {
-				buttons[button].disabled = false;
+				if (buttons.hasOwnProperty(button)) {
+					buttons[button].disabled = false;
+				}
 			}
 			document.querySelector('#' + section + ' input').value = '';
 		}
