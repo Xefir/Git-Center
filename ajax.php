@@ -6,7 +6,6 @@ require_once 'utils.php';
 require_once 'Net/SSH2.php';
 require_once 'Crypt/RSA.php';
 global $servers, $config;
-$gitstatus = 'git fetch && git status';
 
 if (!empty($_POST['section'])) {
 	foreach ($servers as $ssh) {
@@ -38,27 +37,30 @@ if (!empty($_POST['action'])) {
 	}
 
 	if ($session->isConnected()) {
+		$operator = !empty($config['operator']) ? ' ' . $config['operator'] . ' ' : ' && ';
+		$gitstatus = 'git fetch' . $operator . 'git status';
+
 		if ($_POST['action'] == 'status') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . ' && ' . $gitstatus));
+			echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $gitstatus));
 			exit;
 		} else if (strpos($_POST['action'], 'push') !== false) {
 			if (strpos($_POST['action'], 'force') !== false) {
-				echo ansi2html($session->exec('cd ' . $config['path'] . ' && git push && ' . $gitstatus));
+				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git push' . $operator . $gitstatus));
 				if (!empty($config['after_push'])) {
-					echo ansi2html($session->exec('cd ' . $config['path'] . ' && ' . $config['after_push']));
+					echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_push']));
 				}
 			} else {
 				$message = empty($_POST['message']) ? 'FTP' : str_replace(array('"', "'"), ' ', stripslashes($_POST['message']));
-				echo ansi2html($session->exec('cd ' . $config['path'] . ' && git add -A && git commit -m "' . $message . '" && git push && ' . $gitstatus));
+				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git add -A' . $operator . 'git commit -m "' . $message . '"' . $operator . 'git push' . $operator . $gitstatus));
 				if (!empty($config['after_push'])) {
-					echo ansi2html($session->exec('bash -c \'cd ' . $config['path'] . ' && ' . $config['after_push'] . "'"));
+					echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_push']));
 				}
 			}
 			exit;
 		} else if ($_POST['action'] == 'pull') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . ' && git pull && ' . $gitstatus));
+			echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git pull' . $operator . $gitstatus));
 			if (!empty($config['after_pull'])) {
-				echo ansi2html($session->exec('cd ' . $config['path'] . ' && ' . $config['after_pull']));
+				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_pull']));
 			}
 			exit;
 		} else {
