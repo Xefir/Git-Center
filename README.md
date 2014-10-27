@@ -12,6 +12,12 @@ What I need to run it ?
 ----------
 
 Nothing more than a web server with PHP 5 installed.
+The git clients *MUST HAVE bash* or shell like him supporting && operator
+
+Shells tested and working :
+- Bash
+- lshell
+- zsh
 
 Why ?
 ----------
