@@ -1,14 +1,5 @@
 <?php
 
-session_start();
-
-if (defined('ONGITLAB') && ONGITLAB) {
-	if (!isset($_COOKIE['remember_user_token'])) {
-		header('Location: /');
-		exit;
-	}
-}
-
 function ansi2html($string)
 {
 	$dictionary = array(
