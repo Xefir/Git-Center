@@ -2,17 +2,15 @@
 
 /* Copiez coller ce fichier en config.php pour executer correctement Git Center */
 
-// TRUE : Sécurité si vous executez Git Center sur un serveur GitLab
-define('ONGITLAB', false);
-
 /*
+ * "'dev' => false" permet de cacher la fonction pour Commit et Push (exemple appli1)
+ *
  * Dans le cas d'une connexion avec une clef RSA (clef privée) :
  * -- Le mot de passe SSH (pass) est facultatif et sera utilisé en car de refus de connexion avec la clef
  * -- Le keypass est le mot de passe de la clef (laissez vide ou omettez pas le champ si vous n'avez pas mis de keypass)
  * -- Le key est votre clef privée qui peut être soit un chemin (absolu ou relatif) vers le fichier id_rsa soit LA FUCKING CLEF PRIVÉE EN DUR !!!
  *																												 ^ OUI ÇA FONCTIONNE OMGWTFBBQ11
  */
-
 // Définition de la forêt de serveurs
 $servers = array(
 	'Groupe de serveur 1' => array(
@@ -43,6 +41,15 @@ $servers = array(
 			'user' => 'root',
 			'pass' => 'partoutatiss',
 			'path' => '/home/user/root'
+		),
+		'appli1' => array(
+			'title' => 'Appli que je ne dev pas',
+			'host' => '192.168.1.60',
+			'port' => 22,
+			'user' => 'pouet',
+			'pass' => 'pasfinicc',
+			'path' => '/home/user/pouet',
+			'dev' => false
 		)
 	),
 	'Groupe de serveur 2 conf RSA' => array(

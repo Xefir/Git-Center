@@ -54,6 +54,10 @@ pre {
 	float: right;
 }
 
+.nodev-mode {
+	display: none;
+}
+
 @media (max-width: 767px) {
 	.affix {
 		position: relative;
