@@ -38,29 +38,38 @@ if (!empty($_POST['action'])) {
 
 	if ($session->isConnected()) {
 		$operator = !empty($config['operator']) ? ' ' . $config['operator'] . ' ' : ' && ';
-		$gitstatus = 'git fetch' . $operator . 'git status';
+		$gitcommand = 'git --git-dir=' . $config['path'] . '/.git --work-tree=' . $config['path'];
 
 		if ($_POST['action'] == 'status') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $gitstatus));
+			echo ansi2html($session->exec($gitcommand . ' fetch'));
+			echo ansi2html($session->exec($gitcommand . ' status'));
 			exit;
 		} else if (strpos($_POST['action'], 'push') !== false) {
 			if (strpos($_POST['action'], 'force') !== false) {
-				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git push' . $operator . $gitstatus));
+				echo ansi2html($session->exec($gitcommand . ' push'));
+				echo ansi2html($session->exec($gitcommand . ' fetch'));
+				echo ansi2html($session->exec($gitcommand . ' status'));
 				if (!empty($config['after_push'])) {
-					echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_push']));
+					echo ansi2html($session->exec($config['after_push']));
 				}
 			} else {
 				$message = empty($_POST['message']) ? 'FTP' : str_replace(array('"', "'"), ' ', stripslashes($_POST['message']));
-				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git add -A' . $operator . 'git commit -m "' . $message . '"' . $operator . 'git push' . $operator . $gitstatus));
+				echo ansi2html($session->exec($gitcommand . ' add -A'));
+				echo ansi2html($session->exec($gitcommand . ' commit -m "' . $message . '"'));
+				echo ansi2html($session->exec($gitcommand . ' push'));
+				echo ansi2html($session->exec($gitcommand . ' fetch'));
+				echo ansi2html($session->exec($gitcommand . ' status'));
 				if (!empty($config['after_push'])) {
-					echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_push']));
+					echo ansi2html($session->exec($config['after_push']));
 				}
 			}
 			exit;
 		} else if ($_POST['action'] == 'pull') {
-			echo ansi2html($session->exec('cd ' . $config['path'] . $operator . 'git pull' . $operator . $gitstatus));
+			echo ansi2html($session->exec($gitcommand . ' pull'));
+			echo ansi2html($session->exec($gitcommand . ' fetch'));
+			echo ansi2html($session->exec($gitcommand . ' status'));
 			if (!empty($config['after_pull'])) {
-				echo ansi2html($session->exec('cd ' . $config['path'] . $operator . $config['after_pull']));
+				echo ansi2html($session->exec($config['after_pull']));
 			}
 			exit;
 		} else {

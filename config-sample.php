@@ -22,7 +22,6 @@ $servers = array(
 			'pass' => 'root',
 			'path' => '/home/user/root',
 			'after_push' => 'php -f TAMERE.php',
-			'operator' => '&&' # bash style
 		),
 		'test1' => array(
 			'title' => 'Test de la mort',
@@ -32,7 +31,6 @@ $servers = array(
 			'pass' => 'blbl',
 			'path' => '/home/user/test',
 			'after_pull' => 'php -f TONPERE.php',
-			'operator' => '; and' # fish style
 		),
 		'prod2' => array(
 			'title' => 'Production de la mort',
