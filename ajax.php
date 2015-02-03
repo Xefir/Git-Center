@@ -37,7 +37,6 @@ if (!empty($_POST['action'])) {
 	}
 
 	if ($session->isConnected()) {
-		$operator = !empty($config['operator']) ? ' ' . $config['operator'] . ' ' : ' && ';
 		$gitcommand = 'git --git-dir=' . $config['path'] . '/.git --work-tree=' . $config['path'];
 
 		if ($_POST['action'] == 'status') {
