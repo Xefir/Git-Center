@@ -32,7 +32,7 @@ License
 
 [MIT-Licensed]
 
-Many thanks to / Library used
+Many thanks to / Libraries used
 ----------
 
 * [Bootstrap]
