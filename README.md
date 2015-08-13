@@ -39,5 +39,5 @@ Many thanks to / Libraries used
 * [phpseclib]
 
 [MIT-Licensed]:http://en.wikipedia.org/wiki/MIT_License
-[Bootstrap]:http://getbootstrap.com/
+[Bootstrap]:http://getbootstrap.com/2.3.2/
 [phpseclib]:http://phpseclib.sourceforge.net/
