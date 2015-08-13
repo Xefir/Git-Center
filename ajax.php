@@ -37,7 +37,7 @@ if (!empty($_POST['action'])) {
 	}
 
 	if ($session->isConnected()) {
-		$gitcommand = 'git --git-dir=' . $config['path'] . '/.git --work-tree=' . $config['path'];
+		$gitcommand = 'cd "' . $config['path'] . '" ; git';
 
 		if ($_POST['action'] == 'status') {
 			echo ansi2html($session->exec($gitcommand . ' fetch'));
