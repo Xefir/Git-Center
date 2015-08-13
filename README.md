@@ -12,7 +12,8 @@ What I need to run it ?
 ----------
 
 Nothing more than a web server with PHP 5 installed.
-**Your git clients must be in english**
+
+**Your git clients must be in english and at least on version 1.7.10 (or more)**
 
 Why ?
 ----------
